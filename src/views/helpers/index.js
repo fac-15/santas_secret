@@ -1,1 +1,4 @@
-module.exports = {getData: require("./getData")}
+module.exports = {
+  getData: require("./getData"),
+  postData: require("./postData")
+};
