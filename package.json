@@ -1,0 +1,38 @@
+{
+  "name": "santas_secret",
+  "version": "1.0.0",
+  "description": "Week 8 project (Charlie, Hannah, Lucy, Oliver)",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape src/test/server.test.js | tap-spec",
+    "test_db": "tape test NODE_ENV = test node src/test/database.test.js | tap-spec",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-15/santas_secret.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-15/santas_secret/issues"
+  },
+  "homepage": "https://github.com/fac-15/santas_secret#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "bcrypt": "^2.4.3",
+    "env2": "^2.2.2",
+    "pg": "^7.7.1",
+    "pg-promise": "^8.5.3",
+    "qs": "^6.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "tape": "^4.9.1",
+    "tap-spec": "^5.0.0"
+  }
+}
