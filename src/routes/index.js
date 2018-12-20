@@ -1,5 +1,16 @@
-const routes = () => {
-  return "santas routes";
-};
+const express = require("express");
+const router = express.Router();
 
-module.exports = routes;
+router.get("/", (req, res) => {
+  res.render("home");
+});
+
+router.get("/results", (req, res) => {
+  res.render("results");
+});
+
+router.get("/error", (req, res) => {
+  res.render("error");
+});
+
+module.exports = router;
