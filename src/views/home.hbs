@@ -8,7 +8,9 @@
 <h3>Your group:</h3>
 
 <ul id="nameList">
-  <li>A fake ass name</li>
+  {{#each people}}
+    <li>{{full_name}}</li>
+  {{/each}}
 </ul>
 
 <button id="genButton" type="button" name="genButton">Secret Santify</button>
