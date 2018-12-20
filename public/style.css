@@ -4,8 +4,32 @@ body {
   background-position: top right;
   background-attachment: fixed;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Jaldi", sans-serif;
 }
 
-h1, h2 {
-  color: white;
+h1,
+h2 {
+  color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  min-width: 100vw;
+  min-height: 10vh;
+  background-color: white;
+  opacity: 0.9;
+  text-align: center;
+  font-size: 3em;
+}
+
+.description {
+  text-align: center;
 }
