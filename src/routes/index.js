@@ -30,15 +30,30 @@ router.post("/", (req, response) => {
 router.get("/reset", (req, response) => {
   console.log("you're in the reset route");
   reset((err, res) => {
-    if(err){
+    if (err) {
       console.log("reset error: ", err);
     } else {
       response.redirect("/");
     }
-  })
+  });
+});
+
+router.get("/generate", (req, response) => {
+  console.log("you're in the generate route");
+  helpers.getNames((err, res) => {
+    if (err) {
+      console.log("generate error: ", err);
+    } else {
+      const shuffledNames = helpers.shuffle(res);
+      console.log("unshuffled names in router: ", res);
+      console.log("shuffled names in router: ", shuffledNames);
+      response.redirect("/results");
+    }
+  });
 });
 
 router.get("/results", (req, response) => {
+  console.log("you're in the results route");
   response.render("results");
 });
 
