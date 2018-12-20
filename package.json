@@ -23,7 +23,7 @@
   "homepage": "https://github.com/fac-15/santas_secret#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.17.2",
+    "body-parser": "^1.18.3",
     "env2": "^2.2.2",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",

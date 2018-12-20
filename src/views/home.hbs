@@ -1,11 +1,17 @@
-<p>This is the home page</p>
 
-{{!-- input --}}
 
-{{!-- submit button --}}
+<form class="" action="/" method="post">
+  <label for="">Enter name here:</label>
+  <input required id="nameInput" type="text" name="name"></input>
+  <input type="submit" name="button"></input>
+</form>
 
-{{!-- generate button --}}
+<h3>Your group:</h3>
 
-{{!-- reset button --}}
+<ul id="nameList">
+  {{#each people}}
+    <li>{{full_name}}</li>
+  {{/each}}
+</ul>
 
-{{!-- delete option? --}}
+<button id="genButton" type="button" name="genButton">Secret Santify</button>
