@@ -18,13 +18,24 @@ router.get("/", (req, response) => {
 
 router.post("/", (req, response) => {
   console.log(req.body.name);
-  helpers.postData(req.body.name, (err, resultPostData) => {
-    if (err) {
-      console.log("error in postData: ", err);
+  helpers.getNames((error, resultGetNames) => {
+    if(error){
+      console.log("getNames error: ", error);
     } else {
-      response.redirect("/");
+      if(resultGetNames.includes(req.body.name)){
+        console.log("that name already exists");
+        response.redirect("/");
+      } else {
+        helpers.postData(req.body.name, (err, resultPostData) => {
+          if (err) {
+            console.log("error in postData: ", err);
+          } else {
+            response.redirect("/");
+          }
+        });
+      }
     }
-  });
+  })
 });
 
 router.get("/reset", (req, response) => {
