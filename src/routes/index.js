@@ -5,6 +5,10 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
+router.post("/", (req, res) => {
+  console.log(req.body);
+});
+
 router.get("/results", (req, res) => {
   res.render("results");
 });
