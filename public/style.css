@@ -1,0 +1,11 @@
+body {
+  background-image: url("https://purabotanica.com/wp-content/uploads/2015/12/santa.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h1, h2 {
+  color: white;
+}
