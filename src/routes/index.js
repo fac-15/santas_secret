@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const helpers = require("../views/helpers/index.js");
 const reset = require("../database/build_test.js");
+const nothing = () => {
+  console.log("sexy santa");
+}
 
 router.get("/", (req, response) => {
   helpers.getData((error, resultGetData) => {
@@ -18,24 +21,27 @@ router.get("/", (req, response) => {
 
 router.post("/", (req, response) => {
   console.log(req.body.name);
-  helpers.getNames((error, resultGetNames) => {
-    if(error){
-      console.log("getNames error: ", error);
-    } else {
-      if(resultGetNames.includes(req.body.name)){
-        console.log("that name already exists");
-        response.redirect("/");
+  const submit = () => {
+    helpers.getNames((error, resultGetNames) => {
+      if(error){
+        console.log("getNames error: ", error);
       } else {
-        helpers.postData(req.body.name, (err, resultPostData) => {
-          if (err) {
-            console.log("error in postData: ", err);
-          } else {
-            response.redirect("/");
-          }
-        });
+        if(resultGetNames.includes(req.body.name)){
+          console.log("that name already exists");
+          response.redirect("/");
+        } else {
+          helpers.postData(req.body.name, (err, resultPostData) => {
+            if (err) {
+              console.log("error in postData: ", err);
+            } else {
+              response.redirect("/");
+            }
+          })
+        }
       }
-    }
-  })
+    })
+  }
+  setTimeout(submit, 2000);
 });
 
 router.get("/reset", (req, response) => {
