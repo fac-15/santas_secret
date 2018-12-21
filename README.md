@@ -4,7 +4,9 @@
 
 ![](https://cdn.dribbble.com/users/69417/screenshots/1841477/dribbble_santa.gif)
 
-# santas_secret
+# Santa's Secret
+
+A secret santa generator!
 
 Week 8 project (Charlie, Hannah, Lucy, Oliver)
 
@@ -13,7 +15,9 @@ Week 8 project (Charlie, Hannah, Lucy, Oliver)
 - Clone repository
 - Run ```npm install```
 - Create ```config.env``` file and ask us for our DB URL (currently using one hosted on Heroku - we know, local databases would be better though! 🤦‍♂️)
-- Run ```npm run start``` or ```npm run dev```
+- Run ``` npm run test_db``` to see our DB tests
+- Run ```npm run start``` or ```npm run dev``` to roll our server
+- Head to localhost:2512
 
 ## Tuesday:
 
