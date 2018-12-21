@@ -4,7 +4,7 @@ const helpers = require("../views/helpers/index.js");
 const reset = require("../database/build_test.js");
 const nothing = () => {
   console.log("sexy santa");
-}
+};
 
 router.get("/", (req, response) => {
   helpers.getData((error, resultGetData) => {
@@ -23,10 +23,10 @@ router.post("/", (req, response) => {
   console.log(req.body.name);
   const submit = () => {
     helpers.getNames((error, resultGetNames) => {
-      if(error){
+      if (error) {
         console.log("getNames error: ", error);
       } else {
-        if(resultGetNames.includes(req.body.name)){
+        if (resultGetNames.includes(req.body.name)) {
           console.log("that name already exists");
           response.redirect("/");
         } else {
@@ -36,11 +36,11 @@ router.post("/", (req, response) => {
             } else {
               response.redirect("/");
             }
-          })
+          });
         }
       }
-    })
-  }
+    });
+  };
   setTimeout(submit, 2000);
 });
 
@@ -71,7 +71,16 @@ router.get("/generate", (req, response) => {
 
 router.get("/results", (req, response) => {
   console.log("you're in the results route");
-  response.render("results");
+  helpers.getData((error, resultGetData) => {
+    if (error) {
+      console.log("error in getData: ", error);
+    } else {
+      console.log("getData response: ", resultGetData);
+      response.render("results", {
+        people: resultGetData
+      });
+    }
+  });
 });
 
 router.get("/error", (req, response) => {
