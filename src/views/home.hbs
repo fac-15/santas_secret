@@ -1,19 +1,22 @@
+
 <p class='description'>Organizing a Secret Santa? Enter the names and we'll do the rest!</p>
+<section class="mainContent">
+  <form class="" action="/" method="post">
+    <label for="">Enter name here:</label>
+    <input required id="nameInput" type="text" name="name"></input>
+    <input id="submitButton" type="submit" name="button"></input>
+  </form>
 
-<form class="" action="/" method="post">
-  <label for="">Enter name here:</label>
-  <input required id="nameInput" type="text" name="name"></input>
-  <input id="submitButton" type="submit" name="button"></input>
-</form>
+  <h3>Your group:</h3>
 
-<h3>Your group:</h3>
+  <ul id="nameList">
+    {{#each people}}
+    <li>{{full_name}}</li>
+    {{/each}}
+  </ul>
 
-<ul id="nameList">
-  {{#each people}}
-  <li>{{full_name}}</li>
-  {{/each}}
-</ul>
+  <button id="genButton" onclick="window.location.href='/results'" type="button" name="genButton">Secret Santify</button>
 
-<button id="genButton" onclick="window.location.href='/results'" type="button" name="genButton">Secret Santify</button>
+  <button id="resetButton" onclick="window.location.href='/reset'" type="button" name="resetButton">Reset your group</button>
 
-<button id="resetButton" onclick="window.location.href='/reset'" type="button" name="resetButton">Reset your group</button>
+</section>
