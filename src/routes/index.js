@@ -54,37 +54,43 @@ router.get('/reset', (req, response) => {
 
 router.get('/generate', (req, response) => {
   console.log("you're in the generate route");
-  helpers.getNames((err, res) => {
-    if (err) {
-      console.log('generate error: ', err);
-    } else {
-      const shuffledNames = helpers.shuffle(res);
-      helpers.updateDB(res, shuffledNames, (error, result) => {
-        if (error) {
-          return error;
-        } else {
-          return result;
-        }
-      });
-      console.log('unshuffled names in router: ', res);
-      console.log('shuffled names in router: ', shuffledNames);
-      response.redirect('/results');
-    }
-  });
+    helpers.getNames((err, res) => {
+      if (err) {
+        console.log('generate error: ', err);
+      } else {
+        const shuffledNames = helpers.shuffle(res);
+        helpers.updateDB(res, shuffledNames, (error, result) => {
+          if (error) {
+            return error;
+          } else {
+            return result;
+          }
+        });
+        console.log('unshuffled names in router: ', res);
+        console.log('shuffled names in router: ', shuffledNames);
+        response.redirect('/loading');
+      }
+    });
 });
 
+router.get('/loading', (req, response) => {
+  response.render("loading");
+
+})
+
 router.get('/results', (req, response) => {
+
   console.log("you're in the results route");
-  helpers.getData((error, resultGetData) => {
-    if (error) {
-      console.log("error in getData: ", error);
-    } else {
-      console.log("getData response: ", resultGetData);
-      response.render("results", {
-        people: resultGetData
+      helpers.getData((error, resultGetData) => {
+        if (error) {
+          console.log("error in getData: ", error);
+        } else {
+          console.log("getData response: ", resultGetData);
+          response.render("results", {
+            people: resultGetData
+          });
+        }
       });
-    }
-  });
 });
 
 router.get('/error', (req, response) => {
